@@ -34,8 +34,8 @@ module.exports = {
 	context: path.resolve(__dirname, "src"),
 	mode: 'development',
 	entry: {
-		main: './index.js',
-		analytics: './analytics.js'
+		main: ['@babel/polyfill', './index.js'],
+		analytics: './analytics.ts'
 	},
 	output: {
 		filename: '[name].[contenthash].js',
@@ -92,7 +92,29 @@ module.exports = {
 			{
 				test: /\.csv$/,
 				use: ['csv-loader']
+			},
+			{
+				test: /\.js$/,
+				exclude: /node-modules/,
+				loader: 'babel-loader',
+				options: {
+					presets: [
+						'@babel/preset-env'
+					]
+				}
+			},
+			{
+				test: /\.ts$/,
+				exclude: /node-modules/,
+				loader: 'babel-loader',
+				options: {
+					presets: [
+						'@babel/preset-env',
+						'@babel/preset-typescript'
+					]
+				}
 			}
+			
 		]
 	}
 }
