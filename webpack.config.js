@@ -18,5 +18,29 @@ module.exports = {
 			template: './index.html'
 		}),
 		new CleanWebpackPlugin()
-	]
+	],
+	module: {
+		rules: [
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			},
+			{
+				test: /\.(png|jpg)$/,
+				type: 'asset/resource'
+			},
+			{
+				test: /\.(ttf|woff)$/,
+				type: 'asset/resource'
+			},
+			{
+				test: /\.xml$/,
+				use: ['xml-loader']
+			},
+			{
+				test: /\.csv$/,
+				use: ['csv-loader']
+			}
+		]
+	}
 }

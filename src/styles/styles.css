@@ -1,0 +1,24 @@
+@import "~normalize.css";
+@import "roboto.css";
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.container {
+	padding-top:  2em;
+	max-width:  1000px;
+	margin:  0 auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+.logo {
+	background-image: url("../assets/bird.png");
+	background-size: cover;
+	height: 100px;
+	width:  100px;
+	margin: 0 auto;
+}
